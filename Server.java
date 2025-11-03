@@ -27,7 +27,7 @@ public class Server {
             serverSocket.setSoTimeout(10000);
             System.out.println("Server is listening on port "+port);
             while(true){
-                Socket acceptedSocket = serverSocket.accept();
+                Socket clientSocket = serverSocket.accept();
                 Thread thread = new Thread(() -> server.getConsumer().accept(clientSocket));
                 thread.start();
             }
